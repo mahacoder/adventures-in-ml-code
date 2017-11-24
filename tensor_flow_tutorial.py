@@ -124,9 +124,9 @@ def nn_example():
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
     # add a summary to store the accuracy
-    tf.summary.scalar('accuracy', accuracy)
+    accuracy_summary = tf.summary.scalar('accuracy', accuracy)
 
-    merged = tf.summary.merge_all()
+    merged = tf.summary.merge(accuracy_summary)
     writer = tf.summary.FileWriter('C:\\Users\\Andy\\PycharmProjects')
     # start the session
     with tf.Session() as sess:
